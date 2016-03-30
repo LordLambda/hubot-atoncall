@@ -1,0 +1,38 @@
+{
+  "name": "hubot-atoncall",
+  "description": "A hubot script that grabs the current oncall person.",
+  "version": "1.0.0",
+  "author": "Eric <ecoan@instructure.com>",
+  "license": "MIT",
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "pagerduty",
+    "oncall",
+    "at"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hubot-scripts/hubot-atoncall.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hubot-scripts/hubot-atoncall/issues"
+  },
+  "dependencies": {
+    "coffee-script": "~1.6"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*",
+    "sinon-chai": "*",
+    "sinon": "*",
+    "grunt": "^0.4.5",
+    "grunt-mocha-test": "~0.7.0",
+    "matchdep": "~0.1.2",
+    "grunt-contrib-watch": "~0.5.3"
+  },
+  "main": "index.coffee",
+  "scripts": {
+    "test": "./node_modules/.bin/grunt test"
+  }
+}
