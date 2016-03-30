@@ -1,7 +1,7 @@
 {
   "name": "hubot-atoncall",
   "description": "A hubot script that grabs the current oncall person.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Eric <ecoan@instructure.com>",
   "license": "MIT",
   "keywords": [
@@ -13,10 +13,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-atoncall.git"
+    "url": "git://github.com/LordLambda/hubot-atoncall.git"
   },
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-atoncall/issues"
+    "url": "https://github.com/LordLambda/hubot-atoncall/issues"
   },
   "dependencies": {
     "coffee-script": "~1.6"
