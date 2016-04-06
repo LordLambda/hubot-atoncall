@@ -8,6 +8,7 @@
 #   HUBOT_PAGERDUTY_SUBDOMAIN
 #   HUBOT_PAGERDUTY_API_KEY
 #   HUBOT_ONCALL_SERVICE
+#   HUBOT_SLACK_TOKEN (Optional)
 #
 # Commands:
 #   @on-?call - Grabs the current user oncall
@@ -29,25 +30,28 @@ module.exports = (robot) ->
 
   getUserNameFromEmail = (email, cb) ->
     if cache == null
-      if robot.slack?
-        robot.slack.user.list {}, (err, json) ->
-          if err
-            console.log "Calling Slack API Errord: #{err}"
-            return null
-          unless json.ok
-            console.log "Calling Slack API gave a not-OK response: #{json.error}"
-            return null
+      console.log cache
+      if slackToken
+        robot.http("https://slack.com/api/users.list?token=#{slackToken}")
+          .get() (err, res, body) ->
+            if err
+              console.log "Calling Slack API Errord: #{err}"
+              return null
+            console.log body
+            json = JSON.parse body
+            console.log json
+            userMap = {}
+            userMap[member.profile.email] = member.name for member in json.members
 
-          userMap = {}
-          userMap[member.profile.email] = member.name for member in json.members
-
-          cache = userMap
-          slackId = cache[email]
-          unless slackId
-            slackId = null
-          cb slackId
-       else
-         cb null
+            cache = userMap
+            slackId = cache[email]
+            console.log cache
+            console.log slackId
+            unless slackId
+              slackId = null
+            cb slackId
+      else
+        cb null
      else
        if cache == null
          return cb null
