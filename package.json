@@ -1,7 +1,7 @@
 {
   "name": "hubot-atoncall",
   "description": "A hubot script that grabs the current oncall person.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Eric <ecoan@instructure.com>",
   "license": "MIT",
   "keywords": [
